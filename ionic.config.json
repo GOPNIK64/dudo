@@ -1,0 +1,7 @@
+{
+  "name": "dudo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
