@@ -1,13 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>lobby</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content [style.--background]="colorFondo">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">lobby</ion-title>
+      <ion-title [style.color]="colorFuente">Lobby</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="lobby-container" [style.color]="colorFuente">
+    <h1>Bienvenido al Lobby</h1>
+    <!-- Otros elementos del lobby -->
+  </div>
 </ion-content>

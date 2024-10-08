@@ -48,6 +48,22 @@ h1 {
   color: #031927; /* Color del texto */
 }
 
+ion-icon {
+  color: #031927;
+  font-size: 2rem;
+  margin: 5px;
+}
+
+/* Nuevo contenedor para los íconos */
+.icon-container {
+  position: absolute; /* Posiciona el contenedor de manera absoluta */
+  bottom: 10px; /* Distancia del borde inferior */
+  left: 10px;   /* Distancia del borde izquierdo */
+  display: flex; /* Utiliza flexbox para alinear los íconos */
+  flex-direction: column; /* Apila los íconos verticalmente */
+  gap: 1rem; /* Espacio entre los íconos */
+}
+
 
 
 
