@@ -36,20 +36,4 @@ export class HomePage {
       }
     }
   }
-
-  // Métodos para la navegación (puedes implementar la lógica según tu aplicación)
-  irALobby() {
-    console.log('Ir al Lobby');
-    // Aquí puedes agregar la lógica para ir a la pantalla de Lobby
-  }
-
-  irAConfiguracion() {
-    console.log('Ir a Configuración');
-    // Aquí puedes agregar la lógica para ir a la pantalla de Configuración
-  }
-
-  irAInstrucciones() {
-    console.log('Ir a Instrucciones');
-    // Aquí puedes agregar la lógica para ir a la pantalla de Instrucciones
-  }
 }
