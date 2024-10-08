@@ -1,20 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonIcon } from '@ionic/angular/standalone';
+import { ColorService } from 'src/app/services/color.service';
+import { NavController } from '@ionic/angular'; // Importa NavController
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonIcon, IonContent]
 })
 export class SettingsPage implements OnInit {
+  colorFondo!: string;
+  colorFuente!: string;
 
-  constructor() { }
+  constructor(private colorService: ColorService, private navCtrl: NavController) {}
 
   ngOnInit() {
+    this.colorFondo = this.colorService.getColorFondo();
+    this.colorFuente = this.colorService.getColorFuente();
   }
 
+  navigateToHome() {
+    this.navCtrl.navigateBack('/'); // Cambia '/' por la ruta de tu página anterior
+  }
+
+  saveSettings() {
+    console.log("configuraciones guardadas")
+  }
 }

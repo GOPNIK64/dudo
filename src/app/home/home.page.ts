@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonContent, IonIcon } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
-import { ColorService } from 'src/app/services/color.service'; // Ajusta la ruta según tu estructura
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +10,32 @@ import { ColorService } from 'src/app/services/color.service'; // Ajusta la ruta
   standalone: true,
   imports: [IonIcon, IonContent],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   coloresClaros = ['#FC6A0F', '#508AA8', '#E0FF4F'];
   coloresOscuros = ['#031927', '#1C0D03', '#BA1200'];
 
   constructor(private router: Router, private colorService: ColorService) {}
+
+  ngOnInit() {
+    this.aplicarColores(); // Asegúrate de aplicar colores al iniciar
+  }
+
+  aplicarColores() {
+    const ionContent = document.querySelector('ion-content');
+    const h1 = document.querySelector('h1');
+    const ionIcons = document.querySelectorAll('ion-icon');
+
+    const colorFondo = this.colorService.getColorFondo();
+    const colorFuente = this.colorService.getColorFuente();
+
+    if (ionContent && h1) {
+      ionContent.style.setProperty('--background', colorFondo);
+      h1.style.color = colorFuente;
+      h1.style.display = 'block';
+      ionIcons.forEach(icon => icon.style.color = colorFuente);
+    }
+  }
 
   cambiarColor() {
     const ionContent = document.querySelector('ion-content');

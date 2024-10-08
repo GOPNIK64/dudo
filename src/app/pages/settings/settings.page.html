@@ -1,13 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [style.--background]="colorFondo">
+  <div class="settings-container" [style.color]="colorFuente">
+    <h1>Configuraciones</h1>
+    <!-- Otros elementos de configuración -->
+  </div>
+  <div class="back-icon-container">
+    <ion-icon name="caret-back-circle" (click)="navigateToHome()" [style.color]="colorFuente"></ion-icon>
+  </div>
+  <div class="icon-container">
+    <ion-icon name="checkmark-circle" (click)="saveSettings()" [style.color]="colorFuente"></ion-icon>
+  </div>
 </ion-content>

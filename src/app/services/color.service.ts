@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root' // Esto asegura que el servicio sea singleton y disponible en toda la aplicación
+  providedIn: 'root'
 })
 export class ColorService {
-  private colorFondo = '#508aa8'; // Color de fondo por defecto
-  private colorFuente = '#031927'; // Color de fuente por defecto
+  private colorFondo: string;
+  private colorFuente: string;
 
-  constructor() { }
+  constructor() { 
+    // Carga los colores desde localStorage o establece valores por defecto
+    this.colorFondo = localStorage.getItem('colorFondo') || '#508aa8';
+    this.colorFuente = localStorage.getItem('colorFuente') || '#031927';
+  }
 
   setColorFondo(color: string) {
     this.colorFondo = color;
+    localStorage.setItem('colorFondo', color);
   }
 
   setColorFuente(color: string) {
     this.colorFuente = color;
+    localStorage.setItem('colorFuente', color);
   }
 
   getColorFondo(): string {
