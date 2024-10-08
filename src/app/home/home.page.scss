@@ -43,10 +43,10 @@ ion-content {
 }
 
 h1 {
-  font-family: "Rubik Mono One", monospace; /* Aplica la tipografía */
+  font-family: "Rubik Mono One", monospace;
   font-size: 3rem;
   color: #031927; /* Color del texto */
-  letter-spacing: -2.5px; // Reduce el interletrado, ajusta el valor según prefieras
+  letter-spacing: -2.5px;
 }
 
 ion-icon {
@@ -59,7 +59,7 @@ ion-icon {
 .icon-container {
   position: absolute; /* Posiciona el contenedor de manera absoluta */
   bottom: 10px; /* Distancia del borde inferior */
-  left: 10px;   /* Distancia del borde izquierdo */
+  right: 10px;   /* Distancia del borde derecho */
   display: flex; /* Utiliza flexbox para alinear los íconos */
   flex-direction: column; /* Apila los íconos verticalmente */
   gap: 1rem; /* Espacio entre los íconos */
