@@ -39,7 +39,7 @@ export class HomePage {
       h1.style.display = 'block';
       ionIcons.forEach(icon => icon.style.color = colorFuenteAleatorio);
 
-      // Guardar los colores en el servicio para compartirlos con otras páginas
+      // Guarda los colores en el servicio para compartirlos con otras páginas
       this.colorService.setColorFondo(colorFondoAleatorio);
       this.colorService.setColorFuente(colorFuenteAleatorio);
     }
