@@ -1,18 +1,80 @@
+:host {
+    display: block;
+    --padding-start: 0;
+}
+  
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    text-align: center;
+}
+  
+.titulo-config {
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 20px;
+}
+  
+.opciones-lista {
+    border: 2px solid; /* Ajusta el grosor del borde si es necesario */
+    border-radius: 15px; /* Ajusta el radio para redondear las esquinas */
+    padding: 20px; /* Aumenta el padding para dar más espacio interno */
+    margin: 20px; /* Ajusta el margen para estar más cerca de los bordes */
+    background: var(--background); /* Asegúrate de que el fondo se aplique correctamente */
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 40px); /* Ajusta el ancho al 100% menos el margen */
+}
+
+  
+ion-item {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+  
 .back-icon-container {
-    position: absolute; /* Posiciona el contenedor de manera absoluta */
-    bottom: 10px; /* Distancia del borde inferior */
-    left: 10px; /* Distancia del borde izquierdo */
-    z-index: 10; /* Asegura que el icono esté sobre otros elementos */
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
 }
-
+  
 .icon-container {
-    position: absolute; /* Posiciona el contenedor de manera absoluta */
-    bottom: 10px; /* Distancia del borde inferior */
-    right: 10px; /* Distancia del borde derecho */
-    z-index: 10; /* Asegura que el icono esté sobre otros elementos */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
 }
-
+  
 ion-icon {
     font-size: 2rem;
     margin: 5px;
 }
+  
+.rubik-texto {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mano-habil-item {
+    display: flex; /* Habilita Flexbox para este elemento */
+    justify-content: space-between; /* Espacio entre el texto y el ícono */
+    align-items: center; /* Alinea verticalmente el contenido */
+    padding: 10px 15px; /* Añade un poco de espacio alrededor del contenido */
+    margin: 5px 0; /* Añade un margen superior e inferior entre los elementos */
+}
+
+.mano-habil-item span {
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
+    font-size: 25px;
+}
+
+
+  
+
+  

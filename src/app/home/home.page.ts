@@ -2,25 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { IonContent, IonIcon } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { ColorService } from 'src/app/services/color.service';
+import { CommonModule } from '@angular/common';
+import { ManoHabilService } from 'src/app/services/mano-habil.service'; // Importa el servicio
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonContent],
+  imports: [IonIcon, IonContent, CommonModule],
 })
 export class HomePage implements OnInit {
-
   coloresClaros = ['#FC6A0F', '#508AA8', '#E0FF4F'];
   coloresOscuros = ['#031927', '#1C0D03', '#BA1200'];
+  iconPosition!: string;
 
-  constructor(private router: Router, private colorService: ColorService) {}
+  constructor(
+    private router: Router,
+    private colorService: ColorService,
+    private manoHabilService: ManoHabilService // Asegúrate de inyectar el servicio aquí
+  ) {}
 
   ngOnInit() {
     this.aplicarColores(); // Asegúrate de aplicar colores al iniciar
+  
+    this.manoHabilService.manoHabil$.subscribe((manoHabil) => {
+      this.iconPosition = manoHabil === 'hand-left' ? 'left' : 'right';
+    });
   }
-
+  
   aplicarColores() {
     const ionContent = document.querySelector('ion-content');
     const h1 = document.querySelector('h1');
@@ -65,15 +75,15 @@ export class HomePage implements OnInit {
     }
   }
 
-  irALobby() {
-    this.router.navigate(['/lobby']);
-  }
-
   irAInstrucciones() {
     this.router.navigate(['/instructions']);
   }
 
   irAConfiguracion() {
     this.router.navigate(['/settings']);
+  }
+
+  irAGame() {
+    this.router.navigate(['/game']);
   }
 }

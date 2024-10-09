@@ -59,7 +59,6 @@ ion-icon {
 .icon-container {
   position: absolute; /* Posiciona el contenedor de manera absoluta */
   bottom: 10px; /* Distancia del borde inferior */
-  right: 10px;   /* Distancia del borde derecho */
   display: flex; /* Utiliza flexbox para alinear los íconos */
   flex-direction: column; /* Apila los íconos verticalmente */
   gap: 1rem; /* Espacio entre los íconos */

@@ -1,12 +1,29 @@
 <ion-content [style.--background]="colorFondo">
   <div class="settings-container" [style.color]="colorFuente">
-    <h1>Configuraciones</h1>
-    <!-- Otros elementos de configuración -->
+    <h1 class="titulo-config">Configuraciones</h1>
+
+    <!-- Contenedor de la lista -->
+    <div class="opciones-lista" [style.borderColor]="colorFuente" [style.--background]="colorFondo">
+      
+      <ion-item lines="none" [style.--background]="colorFondo" [style.color]="colorFuente" class="mano-habil-item">
+        <span>Mano hábil</span>
+        <ion-icon [name]="manoHabilIcon" (click)="cambiarManoHabil()" [style.color]="colorFuente"></ion-icon>
+      </ion-item>
+            
+
+      <!-- <ion-item lines="none" [style.--background]="colorFondo" [style.color]="colorFuente">Opción en blanco 1</ion-item>
+      <ion-item lines="none" [style.--background]="colorFondo" [style.color]="colorFuente">Opción en blanco 2</ion-item>
+      <ion-item lines="none" [style.--background]="colorFondo" [style.color]="colorFuente">Opción en blanco 3</ion-item> -->
+    </div>
   </div>
+
+  <!-- Icono para volver a la página anterior -->
   <div class="back-icon-container">
     <ion-icon name="caret-back-circle" (click)="navigateToHome()" [style.color]="colorFuente"></ion-icon>
   </div>
+
   <div class="icon-container">
     <ion-icon name="checkmark-circle" (click)="saveSettings()" [style.color]="colorFuente"></ion-icon>
   </div>
+
 </ion-content>
