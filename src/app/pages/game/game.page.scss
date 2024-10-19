@@ -1,0 +1,141 @@
+.dice {
+    height: 100px; /* Cambiado de 200px a 100px */
+    width: 100px; /* Cambiado de 200px a 100px */
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-50px) rotateY(-45deg) rotateX(-45deg); /* Ajustado a -50px */
+    transition: transform 1s;
+}
+
+.panel {
+    border-radius: 5px;
+    width: 100px; /* Cambiado de 200px a 100px */
+    height: 100px; /* Cambiado de 200px a 100px */
+    perspective: 400px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.dot {
+    display: block;
+    width: 18px; /* Cambiado de 36px a 18px */
+    height: 18px; /* Cambiado de 36px a 18px */
+    border-radius: 50%;
+    margin: 2px; /* Cambiado de 4px a 2px */
+}
+
+.side {
+    position: absolute;
+    width: 100px; /* Cambiado de 200px a 100px */
+    height: 100px; /* Cambiado de 200px a 100px */
+    border-radius: 5px;
+    line-height: 100px; /* Cambiado de 200px a 100px */
+}
+
+.one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateX(-90deg) translateZ(50px); /* Cambiado a 50px */
+    z-index: 1;
+}
+
+.two {
+    display: flex;
+    justify-content: space-between;
+    transform: rotateY(180deg) translateZ(50px); /* Cambiado a 50px */
+    z-index: 2;
+}
+
+.two .dot:nth-of-type(2) {
+    align-self: flex-end;
+}
+
+.three {
+    display: flex;
+    justify-content: space-between;
+    transform: rotateY(90deg) translateZ(50px); /* Cambiado a 50px */
+    z-index: 3;
+}
+  
+.three .dot:nth-of-type(2) {
+    align-self: center;
+}
+  
+.three .dot:nth-of-type(3) {
+    align-self: flex-end;
+}
+
+.four {
+    z-index: 4;
+    transform: rotateY(0deg) translateZ(50px); /* Cambiado a 50px */
+}
+
+.four, .six {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.four .kolona, .six .kolona {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.five {
+    display: flex;
+    justify-content: space-between;
+    transform: rotateY(-90deg) translateZ(50px); /* Cambiado a 50px */
+    z-index: 5;
+}
+  
+.five .kolona {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.five .kolona:nth-of-type(2) {
+    justify-content: center;
+}
+
+.six {
+    transform: rotateX(90deg) translateZ(50px); /* Cambiado a 50px */
+    z-index: 6;
+}
+  
+/* OTROS ESTILOS */
+  
+ion-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+
+.dice-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* Ajusta si deseas cambiar la disposición */
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.icon-container {
+    position: absolute; /* Posiciona el contenedor de manera absoluta */
+    bottom: 10px; /* Distancia del borde inferior */
+    display: flex; /* Utiliza flexbox para alinear los íconos */
+    flex-direction: column; /* Apila los íconos verticalmente */
+    gap: 1rem; /* Espacio entre los íconos */
+}
+
+ion-icon {
+    font-size: 2rem;
+    margin: 5px;
+}
