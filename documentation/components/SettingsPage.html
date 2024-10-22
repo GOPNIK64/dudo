@@ -683,17 +683,24 @@ export class SettingsPage implements OnInit {
     text-align: center;
     margin: 0;
     padding-bottom: 20px;
+    font-family: &quot;Rubik Mono One&quot;, monospace;
+    font-size: 30px;
+    letter-spacing: 0.5px;
+    transform: scaleY(3); /* Estira el texto un poco más */
+    padding-top: 30px;
 }
   
 .opciones-lista {
     border: 2px solid; /* Ajusta el grosor del borde si es necesario */
-    border-radius: 15px; /* Ajusta el radio para redondear las esquinas */
+    border-radius: 30px; /* Ajusta el radio para redondear las esquinas */
     padding: 20px; /* Aumenta el padding para dar más espacio interno */
     margin: 20px; /* Ajusta el margen para estar más cerca de los bordes */
     background: var(--background); /* Asegúrate de que el fondo se aplique correctamente */
     display: flex;
     flex-direction: column;
     width: calc(100% - 40px); /* Ajusta el ancho al 100% menos el margen */
+    margin-top: 50px;
+
 }
 
   
@@ -734,6 +741,8 @@ ion-icon {
     align-items: center; /* Alinea verticalmente el contenido */
     padding: 10px 15px; /* Añade un poco de espacio alrededor del contenido */
     margin: 5px 0; /* Añade un margen superior e inferior entre los elementos */
+    font-family: &quot;Rubik mono One&quot;, monospace;
+    font-size: 20px;
 }
 
 .mano-habil-item span {

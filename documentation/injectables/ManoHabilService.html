@@ -156,6 +156,9 @@
                             <li>
                                 <a href="#cambiarManoHabil" >cambiarManoHabil</a>
                             </li>
+                            <li>
+                                <a href="#setManoHabil" >setManoHabil</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -168,6 +171,24 @@
     </table>
 </section>
 
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/mano-habil.service.ts:9</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
 
             <section data-compodoc="block-methods">
     
@@ -194,8 +215,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="11"
-                                    class="link-to-prism">src/app/services/mano-habil.service.ts:11</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/app/services/mano-habil.service.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -207,6 +228,73 @@
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setManoHabil"></a>
+                    <span class="name">
+                        <span ><b>setManoHabil</b></span>
+                        <a href="#setManoHabil"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setManoHabil(manoHabil: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/services/mano-habil.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>manoHabil</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -284,9 +372,21 @@ export class ManoHabilService {
   private manoHabilSubject &#x3D; new BehaviorSubject&lt;string&gt;(&#x27;hand-right&#x27;);
   manoHabil$ &#x3D; this.manoHabilSubject.asObservable();
 
+  constructor() {
+    // Cargar mano habil desde localStorage en la inicialización del servicio
+    const manoHabilFromStorage &#x3D; localStorage.getItem(&#x27;manoHabil&#x27;);
+    if (manoHabilFromStorage) {
+      this.manoHabilSubject.next(manoHabilFromStorage);
+    }
+  }
+
   cambiarManoHabil() {
     const nuevaManoHabil &#x3D; this.manoHabilSubject.value &#x3D;&#x3D;&#x3D; &#x27;hand-left&#x27; ? &#x27;hand-right&#x27; : &#x27;hand-left&#x27;;
     this.manoHabilSubject.next(nuevaManoHabil);
+  }
+
+  setManoHabil(manoHabil: string) {
+    this.manoHabilSubject.next(manoHabil);
   }
 }
 </code></pre>
