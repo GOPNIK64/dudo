@@ -1,60 +1,61 @@
-<ion-content  [style.--background]="colorFondo" (click)="spinDice()">
-  <div class="panel dice-container">
-    <div class="dice" #diceElement>
-      <div class="side one" [style.background-color]="colorFuente">
-        <span class="dot" [style.background-color]="colorFondo"></span>
-      </div>
-      <div class="side two" [style.background-color]="colorFuente">
-        <span class="dot" [style.background-color]="colorFondo"></span>
-        <span class="dot" [style.background-color]="colorFondo"></span>
-      </div>
-      <div class="side three" [style.background-color]="colorFuente">
-        <span class="dot" [style.background-color]="colorFondo"></span>
-        <span class="dot" [style.background-color]="colorFondo"></span>
-        <span class="dot" [style.background-color]="colorFondo"></span>
-      </div>
-      <div class="side four" [style.background-color]="colorFuente">
-        <div class="kolona">
+<ion-content [style.--background]="colorFondo" (click)="spinDice()">
+    <div class="dice-container">
+      <div *ngFor="let dice of dices; let i = index" class="dice" #diceElement>
+        <div class="side one" [style.background-color]="colorFuente">
+          <span class="dot" [style.background-color]="colorFondo"></span>
+        </div>
+        <div class="side two" [style.background-color]="colorFuente">
           <span class="dot" [style.background-color]="colorFondo"></span>
           <span class="dot" [style.background-color]="colorFondo"></span>
         </div>
-        <div class="kolona">
+        <div class="side three" [style.background-color]="colorFuente">
           <span class="dot" [style.background-color]="colorFondo"></span>
-          <span class="dot" [style.background-color]="colorFondo"></span>
-        </div>
-      </div>
-      <div class="side five" [style.background-color]="colorFuente">
-        <div class="kolona">
           <span class="dot" [style.background-color]="colorFondo"></span>
           <span class="dot" [style.background-color]="colorFondo"></span>
         </div>
-        <div class="kolona">
-          <span class="dot" [style.background-color]="colorFondo"></span>
+        <div class="side four" [style.background-color]="colorFuente">
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
         </div>
-        <div class="kolona">
-          <span class="dot" [style.background-color]="colorFondo"></span>
-          <span class="dot" [style.background-color]="colorFondo"></span>
+        <div class="side five" [style.background-color]="colorFuente">
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
         </div>
-      </div>
-      <div class="side six" [style.background-color]="colorFuente">
-        <div class="kolona">
-          <span class="dot" [style.background-color]="colorFondo"></span>
-          <span class="dot" [style.background-color]="colorFondo"></span>
-        </div>
-        <div class="kolona">
-          <span class="dot" [style.background-color]="colorFondo"></span>
-          <span class="dot" [style.background-color]="colorFondo"></span>
-        </div>
-        <div class="kolona">
-          <span class="dot" [style.background-color]="colorFondo"></span>
-          <span class="dot" [style.background-color]="colorFondo"></span>
+        <div class="side six" [style.background-color]="colorFuente">
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot" [style.background-color]="colorFondo"></span>
+            <span class="dot" [style.background-color]="colorFondo"></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  
   <div>
     <div class="icon-container" [ngStyle]="{ 'left': iconPosition === 'left' ? '10px' : 'auto', 'right': iconPosition === 'right' ? '10px' : 'auto' }">
-      <ion-icon name="caret-back-circle" (click)="navigateToHome()" [style.color]="colorFuente"></ion-icon> 
+      <ion-icon name="caret-back-circle" (click)="navigateToHome()" [style.color]="colorFuente"></ion-icon>
     </div>
   </div>
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/angular/standalone';
@@ -17,50 +17,60 @@ export class GamePage implements OnInit {
   colorFondo!: string;
   colorFuente!: string;
   iconPosition!: string;
-  @ViewChild('diceElement') diceElement!: ElementRef;
-  diceArray: number[] = Array(5).fill(0); // Crea un arreglo de 5 elementos
+  
+  // Usar ViewChildren para acceder a todos los dados
+  @ViewChildren('diceElement') diceElements!: QueryList<ElementRef>;
+  
+  dices: number[] = Array(5).fill(0); // Crea un arreglo de 5 elementos
   private pressTimer: any; // Para el temporizador del press
 
   constructor(private colorService: ColorService,
               private router: Router,
-              private manoHabilService: ManoHabilService // Asegúrate de inyectar el servicio aquí 
-              ) {}
+              private manoHabilService: ManoHabilService,
+              private cdr: ChangeDetectorRef) {} // ChangeDetectorRef agregado
 
   ngOnInit() {
     this.colorFondo = this.colorService.getColorFondo();
-    this.colorFuente = this.colorService.getColorFuente(); // Utiliza el método adecuado si ya tienes otro color específico
+    this.colorFuente = this.colorService.getColorFuente();
     document.documentElement.style.setProperty('--color-fondo', this.colorFondo);
-    console.log("Color de fondo aplicado:", this.colorFondo); // Revisa que el color no sea negro
+    console.log("Color de fondo aplicado:", this.colorFondo);
+    
     this.manoHabilService.manoHabil$.subscribe((manoHabil) => {
       this.iconPosition = manoHabil === 'hand-left' ? 'left' : 'right';
     });
   }
 
-  // Reemplaza el uso de navCtrl con el router
   navigateToHome() {
-    this.router.navigate(['/']); // Cambia '/' por la ruta de tu página anterior
+    this.router.navigate(['/']);
   }
 
   spinDice() {
-    const rnd = Math.floor(Math.random() * 6 + 1);
-    let x: number, y: number;
-
-    switch (rnd) {
-      case 1:
-        x = 720;
-        y = 810;
-        break;
-      case 6:
-        x = 720;
-        y = 990;
-        break;
-      default:
-        x = 720 + (6 - rnd) * 90;
-        y = 900;
-        break;
-    }
-
-    this.diceElement.nativeElement.style.transform = `translateZ(-100px) rotateY(${x}deg) rotateX(${y}deg)`;
+    // Convertir el QueryList a un array de elementos
+    const diceArray = this.diceElements.toArray();
+    
+    diceArray.forEach((diceElement) => {
+      const rnd = Math.floor(Math.random() * 6 + 1);
+      let x: number, y: number;
+  
+      // Mantener el switch original para las rotaciones
+      switch (rnd) {
+        case 1:
+          x = 720;
+          y = 810;
+          break;
+        case 6:
+          x = 720;
+          y = 990;
+          break;
+        default:
+          x = 720 + (6 - rnd) * 90;
+          y = 900;
+          break;
+      }
+  
+      // Aplicar la transformación
+      diceElement.nativeElement.style.transform = `translateZ(-100px) rotateY(${x}deg) rotateX(${y}deg)`;
+    });
   }
-
+  
 }

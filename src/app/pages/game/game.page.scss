@@ -120,12 +120,12 @@ ion-content {
 
 .dice-container {
     display: grid;
-    grid-template-columns: repeat(2, auto); /* Ajusta si deseas cambiar la disposición */
-    gap: 16px;
-    justify-content: center;
+    grid-template-columns: repeat(1, auto);
+    gap: 24px !important; /* Fuerza la aplicación de este estilo */
     align-items: center;
+    justify-content: center;
+    margin-top: 35%; /* Ajusta este valor para controlar la separación */
 }
-
 
 .icon-container {
     position: absolute; /* Posiciona el contenedor de manera absoluta */
