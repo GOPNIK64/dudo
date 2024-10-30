@@ -22,7 +22,6 @@ export class GamePage implements OnInit {
   @ViewChildren('diceElement') diceElements!: QueryList<ElementRef>;
   
   dices: number[] = Array(5).fill(0); // Crea un arreglo de 5 elementos
-  private pressTimer: any; // Para el temporizador del press
 
   constructor(private colorService: ColorService,
               private router: Router,
@@ -34,6 +33,9 @@ export class GamePage implements OnInit {
     this.colorFuente = this.colorService.getColorFuente();
     document.documentElement.style.setProperty('--color-fondo', this.colorFondo);
     console.log("Color de fondo aplicado:", this.colorFondo);
+
+    // Inicializa con 5 dados con valores aleatorios
+    this.dices = Array.from({ length: 5 }, () => Math.floor(Math.random() * 6 + 1));
     
     this.manoHabilService.manoHabil$.subscribe((manoHabil) => {
       this.iconPosition = manoHabil === 'hand-left' ? 'left' : 'right';
@@ -45,6 +47,7 @@ export class GamePage implements OnInit {
   }
 
   spinDice() {
+
     // Convertir el QueryList a un array de elementos
     const diceArray = this.diceElements.toArray();
     
@@ -71,6 +74,27 @@ export class GamePage implements OnInit {
       // Aplicar la transformación
       diceElement.nativeElement.style.transform = `translateZ(-100px) rotateY(${x}deg) rotateX(${y}deg)`;
     });
+  }
+
+  // Método para agregar un dado
+  addDice(event: Event) {
+
+    event.stopPropagation();
+
+    if (this.dices.length < 5) { // Limita la cantidad de dados a 5
+      const newValue = Math.floor(Math.random() * 6 + 1); // Genera un valor aleatorio entre 1 y 6
+      this.dices.push(newValue);
+    }
+  }
+
+   // Método para quitar un dado
+  removeDice(event: Event) {
+
+    event.stopPropagation();
+
+    if (this.dices.length > 0) {
+      this.dices.pop();
+    }
   }
   
 }

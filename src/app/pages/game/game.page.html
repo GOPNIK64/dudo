@@ -57,5 +57,9 @@
     <div class="icon-container" [ngStyle]="{ 'left': iconPosition === 'left' ? '10px' : 'auto', 'right': iconPosition === 'right' ? '10px' : 'auto' }">
       <ion-icon name="caret-back-circle" (click)="navigateToHome()" [style.color]="colorFuente"></ion-icon>
     </div>
+    <div class="iconos-masmenos">
+      <ion-icon name="remove-circle" (click)="removeDice($event)" [style.color]="colorFuente"></ion-icon>
+      <ion-icon name="add-circle" (click)="addDice($event)" [style.color]="colorFuente"></ion-icon>
+    </div>
   </div>
 </ion-content>
