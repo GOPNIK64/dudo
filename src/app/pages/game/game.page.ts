@@ -23,6 +23,9 @@ export class GamePage implements OnInit {
   
   dices: number[] = Array(5).fill(0); // Crea un arreglo de 5 elementos
 
+  canRemoveDice: boolean = true; // Controla si el botón de quitar dado es visible
+  canAddDice: boolean = false; // Empieza en false porque ya tenemos 5 dados
+
   constructor(private colorService: ColorService,
               private router: Router,
               private manoHabilService: ManoHabilService,
@@ -40,6 +43,11 @@ export class GamePage implements OnInit {
     this.manoHabilService.manoHabil$.subscribe((manoHabil) => {
       this.iconPosition = manoHabil === 'hand-left' ? 'left' : 'right';
     });
+
+    this.canAddDice = this.dices.length < 5;
+    this.canRemoveDice = this.dices.length > 1;
+
+    this.updateDiceButtons();
   }
 
   navigateToHome() {
@@ -81,10 +89,12 @@ export class GamePage implements OnInit {
 
     event.stopPropagation();
 
-    if (this.dices.length < 5) { // Limita la cantidad de dados a 5
-      const newValue = Math.floor(Math.random() * 6 + 1); // Genera un valor aleatorio entre 1 y 6
-      this.dices.push(newValue);
+    if (this.dices.length < 5) {
+      this.dices.push(0);
+      this.canRemoveDice = true;
     }
+
+    this.canAddDice = this.dices.length < 5;
   }
 
    // Método para quitar un dado
@@ -92,9 +102,17 @@ export class GamePage implements OnInit {
 
     event.stopPropagation();
 
-    if (this.dices.length > 0) {
+    if (this.dices.length > 1) {
       this.dices.pop();
+      this.canAddDice = true;
     }
+
+    this.canRemoveDice = this.dices.length > 1;
+  }
+
+  // Actualiza la visibilidad del botón de quitar dado
+  private updateDiceButtons() {
+    this.canRemoveDice = this.dices.length > 1;
   }
   
 }

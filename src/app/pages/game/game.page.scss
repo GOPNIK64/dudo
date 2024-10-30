@@ -136,27 +136,21 @@ ion-icon {
 
 .iconos-masmenos {
     position: fixed;
-    bottom: 10px; // Alinea ambos contenedores a la misma altura
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    align-items: center; // Alinea verticalmente los íconos en el centro
     gap: 1rem;
-    background: linear-gradient(
-      to right,
-      rgba(var(--color-fuente-rgb), 0.6),
-      rgba(var(--color-fuente-rgb), 0.3)
-    );
     border-radius: 10px 10px 0 0;
     font-size: 2rem;
-  }
-  
-  .icon-container {
+}
+
+.icon-container {
     position: fixed;
     bottom: 10px; // Alinea ambos contenedores a la misma altura
     right: 10px; // Ajusta la posición a la derecha
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
+}
   

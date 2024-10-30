@@ -58,8 +58,19 @@
       <ion-icon name="caret-back-circle" (click)="navigateToHome()" [style.color]="colorFuente"></ion-icon>
     </div>
     <div class="iconos-masmenos">
-      <ion-icon name="remove-circle" (click)="removeDice($event)" [style.color]="colorFuente"></ion-icon>
-      <ion-icon name="add-circle" (click)="addDice($event)" [style.color]="colorFuente"></ion-icon>
+      <ion-icon 
+        name="remove-circle" 
+        (click)="removeDice($event)" 
+        [style.color]="colorFuente" 
+        [style.visibility]="canRemoveDice ? 'visible' : 'hidden'">
+      </ion-icon>
+      <ion-icon 
+        name="add-circle" 
+        (click)="addDice($event)" 
+        [style.color]="colorFuente"
+        [style.visibility]="canAddDice ? 'visible' : 'hidden'">
+      </ion-icon>
     </div>
+    
   </div>
 </ion-content>
