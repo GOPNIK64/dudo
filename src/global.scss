@@ -49,3 +49,11 @@
     font-style: normal;
 }
 
+ion-content {
+    user-select: none; /* Evita la selección de texto */
+    -webkit-user-select: none; /* Para Safari */
+    -moz-user-select: none; /* Para Firefox */
+    -ms-user-select: none; /* Para IE/Edge */
+    /* Añade otros estilos según sea necesario */
+}
+
